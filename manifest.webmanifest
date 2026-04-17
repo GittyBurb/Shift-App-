@@ -1,0 +1,15 @@
+{
+  "name": "Smart Shift Scheduler",
+  "short_name": "Shift Scheduler",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#e2e8f0",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
