@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="icons/icon.svg" />
+    <title>Smart Shift Scheduler</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="phone-shell">
+      <header>
+        <h1>Smart Shift Scheduler</h1>
+        <p class="subtitle">Upload your roster, auto-build shifts, and estimate pay.</p>
+      </header>
+
+      <section class="card">
+        <h2>1) Upload schedule image</h2>
+        <input id="imageInput" type="file" accept="image/*" />
+        <p id="ocrStatus" class="muted">No image processed yet.</p>
+      </section>
+
+      <section class="card controls">
+        <h2>2) Shift setup</h2>
+        <label>
+          Start date
+          <input id="startDate" type="date" />
+        </label>
+        <label>
+          Hourly wage ($)
+          <input id="hourlyRate" type="number" min="0" step="0.01" placeholder="20.00" />
+        </label>
+        <p class="muted">Detected labels: <span id="detectedLabels">None</span></p>
+      </section>
+
+      <section class="card">
+        <h2>3) Generated schedule</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Shift</th>
+                <th>Time</th>
+                <th>Hours</th>
+                <th>Pay</th>
+              </tr>
+            </thead>
+            <tbody id="scheduleBody">
+              <tr>
+                <td colspan="5" class="empty">Upload an image with E/N labels to begin.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card totals">
+        <h2>Totals</h2>
+        <p>Total shifts: <strong id="totalShifts">0</strong></p>
+        <p>Total hours: <strong id="totalHours">0</strong></p>
+        <p>Total earnings: <strong id="totalPay">$0.00</strong></p>
+      </section>
+    </main>
+  </body>
+</html>
